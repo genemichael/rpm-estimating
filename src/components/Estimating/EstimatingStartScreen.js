@@ -2,13 +2,15 @@ import React, { useState } from 'react'
 import { 
     Container, 
     Row,
-    RowProps,
     Col,
-    ColProps,
-    Dropdown, DropdownToggle, DropdownMenu, DropdownItem,
     Button,
     ButtonGroup,
-    Input
+    Input,
+    Modal, 
+    ModalHeader, 
+    ModalBody, 
+    ModalFooter, 
+    Label
  } from 'reactstrap'
 import ToggleSwitch from '../../ToggleSwitch/ToggleSwitch'
 
@@ -16,6 +18,8 @@ import ToggleSwitch from '../../ToggleSwitch/ToggleSwitch'
 const EstimatingStartScreen = () => {
     const [isCopy, setIsCopy] = useState(false)
     const toggle = () => setIsCopy(current => !current)
+    const [modal, setModal] = useState(false);
+    const toggleModal = () => setModal(!modal);
     const getAQuoteNumber = () => {
         
             google.script.run.withSuccessHandler(loadNumber).NewEstimateNumber();
@@ -53,24 +57,6 @@ const EstimatingStartScreen = () => {
     </Row>
     <br />
     <Row>
-        <Col>
-
-        </Col>
-        <Col>
-            <p>Copy Previous Estimate?</p>
-        </Col>
-        <Col>
-            <ToggleSwitch
-                id='hardProof'
-                    checked={isCopy}
-                    onClick={toggle}
-                    onChange={toggle}
-                    >
-            </ToggleSwitch>
-        </Col>
-    </Row>
-    <br />
-    <Row>
     <div className='d-flex justify-content-end'>
         <ButtonGroup>
             <Button 
@@ -84,6 +70,7 @@ const EstimatingStartScreen = () => {
                 outline
                 color='secondary'
                 id='openButton'
+                onClick={toggleModal}
                 >
                     Load
                 </Button>
@@ -93,6 +80,19 @@ const EstimatingStartScreen = () => {
         </ButtonGroup>
         </div>
         </Row>
+        <Modal isOpen={modal} toggle={toggleModal} >
+        <ModalHeader toggle={toggleModal}>Load an estimate</ModalHeader>
+        <ModalBody>
+          <Label htmlFor='prevEst'>Previous Estimate</Label>
+          <Input type='text' id='prevEst'/>
+        </ModalBody>
+        <ModalFooter>
+        <ButtonGroup>
+          <Button color="info" outline onClick={toggleModal}>Load Estimate</Button>{' '}
+          <Button color="warning" outline onClick={toggleModal}>Cancel</Button>
+          </ButtonGroup>
+        </ModalFooter>
+      </Modal>
     
     </Container>
   )

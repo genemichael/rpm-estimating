@@ -1,7 +1,7 @@
 
-import { Tab } from 'bootstrap'
+//import { Tab } from 'bootstrap'
 import React from 'react'
-import { Button, Table, Row, Col } from 'reactstrap'
+import { Button, Table, Row, Col, Tab } from 'reactstrap'
 
 const AvailableMachines = () => {
   return (
