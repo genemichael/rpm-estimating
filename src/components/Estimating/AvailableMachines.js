@@ -1,9 +1,30 @@
 
 //import { Tab } from 'bootstrap'
-import React from 'react'
-import { Button, Table, Row, Col, Tab } from 'reactstrap'
+import React, {useState} from 'react'
+import { Button, Table, Row, Col, Tab, Input } from 'reactstrap'
 
 const AvailableMachines = () => {
+    const [list, setList] = React.useState([]);
+    const addFunction = (machineName) => {
+    list.push(machineName);
+    handleAdd();
+  };
+  const handleAdd = () => {
+    const items = list;
+    setList([...items]);
+  };
+
+  const handleRemove = (index) => {
+    const items = list;
+    if (items.length > 0) {
+      const lastIndex = items.length - 1;
+      setList([
+        ...items.slice(items, index),
+        ...items.slice(index + 1, items.length)
+        ]
+        );
+    }
+  };
   return (
     <>
         <Row>
@@ -27,7 +48,7 @@ const AvailableMachines = () => {
                             Indigo
                         </td>
                         <td>
-                            <Button>
+                            <Button color='info' onClick={() => {addFunction("Indigo")}}>
                                 +
                             </Button>
                         </td>
@@ -37,7 +58,7 @@ const AvailableMachines = () => {
                             Versant
                         </td>
                         <td>
-                            <Button>
+                            <Button color='info' onClick={() => {addFunction("Versant")}}>
                                 +
                             </Button>
                         </td>
@@ -47,7 +68,7 @@ const AvailableMachines = () => {
                             KM1250
                         </td>
                         <td>
-                            <Button>
+                            <Button color='info' onClick={() => {addFunction("KM1250")}}>
                                 +
                             </Button>
                         </td>
@@ -57,7 +78,7 @@ const AvailableMachines = () => {
                             Hopkins 4-Color
                         </td>
                         <td>
-                            <Button>
+                            <Button color='info' onClick={() => {addFunction("Hopkins 4-Color")}}>
                                 +
                             </Button>
                         </td>
@@ -67,7 +88,7 @@ const AvailableMachines = () => {
                             Chief 15
                         </td>
                         <td>
-                            <Button>
+                            <Button color='info' onClick={() => {addFunction("Chief 15")}}>
                                 +
                             </Button>
                         </td>
@@ -77,7 +98,7 @@ const AvailableMachines = () => {
                             19 Cutter
                         </td>
                         <td>
-                            <Button>
+                            <Button color='info' onClick={() => {addFunction("19 Cutter")}}>
                                 +
                             </Button>
                         </td>
@@ -87,7 +108,7 @@ const AvailableMachines = () => {
                             MBO Folder
                         </td>
                         <td>
-                            <Button>
+                            <Button color='info' onClick={() => {addFunction("MBO Folder")}}>
                                 +
                             </Button>
                         </td>
@@ -97,7 +118,7 @@ const AvailableMachines = () => {
                             Cylinder Press
                         </td>
                         <td>
-                            <Button>
+                            <Button color='info' onClick={() => {addFunction("Cylinder Press")}}>
                                 +
                             </Button>
                         </td>
@@ -107,7 +128,7 @@ const AvailableMachines = () => {
                             Duplo Tower
                         </td>
                         <td>
-                            <Button>
+                            <Button color='info' onClick={() => {addFunction("Duplo Tower")}}>
                                 +
                             </Button>
                         </td>
@@ -117,7 +138,7 @@ const AvailableMachines = () => {
                             Vendor Service
                         </td>
                         <td>
-                            <Button>
+                            <Button color='info' onClick={() => {addFunction("Vendor Service")}}>
                                 +
                             </Button>
                         </td>
@@ -141,15 +162,21 @@ const AvailableMachines = () => {
                             </th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <td>
-                            Machine
-                        </td>
-                        <td>
-                            <Button>
-                                -
-                            </Button>
-                        </td>
+                    <tbody id="selectedList">
+                    {list.map((item, index) => (
+                        <>  
+                            <tr>
+                                <td key={index}>{item}</td>
+                                <td>
+                                    <Button key={index+Math.random} color='danger' onClick={() => {handleRemove(index)}}>
+                                        -
+                                    </Button>
+                                </td>
+                                
+                            </tr>
+                        </>
+                        )
+                        )}    
                     </tbody>
                 </Table>
             </Col>

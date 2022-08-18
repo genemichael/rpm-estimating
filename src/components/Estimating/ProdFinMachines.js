@@ -7,6 +7,27 @@ const ProdFinMachines = () => {
     const selectedToggleIsTrue = () => {
         setActive(current => !current)
     };
+        const [list, setList] = React.useState([]);
+        const addFunction = (machineName) => {
+          list.push(machineName);
+          handleAdd();
+        };
+        const handleAdd = () => {
+          const items = list;
+          setList([...items]);
+        };
+      
+        const handleRemove = (index) => {
+          const items = list;
+          if (items.length > 0) {
+            const lastIndex = items.length - 1;
+            setList([
+              ...items.slice(items, index),
+              ...items.slice(index + 1, items.length)
+            ]);
+          }
+        };
+
     return (
         <>
             <Row>
@@ -42,7 +63,7 @@ const ProdFinMachines = () => {
                 </Col>
             </Row>
             <Row>
-                <Col className='col-5'>
+            <Col className='col-5'>
                  <Table
                     hover
                     >
@@ -62,7 +83,7 @@ const ProdFinMachines = () => {
                                 KM1250
                             </td>
                             <td>
-                                <Button>
+                                <Button color='info' onClick={() => {addFunction("KM1250")}}>
                                     +
                                 </Button>
                             </td>
@@ -72,7 +93,7 @@ const ProdFinMachines = () => {
                                 Chief 15
                             </td>
                             <td>
-                                <Button>
+                                <Button color='info' onClick={() => {addFunction("Chief 15")}}>
                                     +
                                 </Button>
                             </td>
@@ -82,7 +103,7 @@ const ProdFinMachines = () => {
                                 19 Cutter
                             </td>
                             <td>
-                                <Button>
+                                <Button color='info' onClick={() => {addFunction("19 Cutter")}}>
                                     +
                                 </Button>
                             </td>
@@ -92,7 +113,7 @@ const ProdFinMachines = () => {
                                 MBO Folder
                             </td>
                             <td>
-                                <Button>
+                                <Button color='info' onClick={() => {addFunction("MBO Folder")}}>
                                     +
                                 </Button>
                             </td>
@@ -102,7 +123,7 @@ const ProdFinMachines = () => {
                                 Cylinder Press
                             </td>
                             <td>
-                                <Button>
+                                <Button color='info' onClick={() => {addFunction("Cylinder Press")}}>
                                     +
                                 </Button>
                             </td>
@@ -112,7 +133,7 @@ const ProdFinMachines = () => {
                                 Duplo Tower
                             </td>
                             <td>
-                                <Button>
+                                <Button color='info' onClick={() => {addFunction("Duplo Tower")}}>
                                     +
                                 </Button>
                             </td>
@@ -122,7 +143,7 @@ const ProdFinMachines = () => {
                                 Vendor Service
                             </td>
                             <td>
-                                <Button>
+                                <Button color='info' onClick={() => {addFunction("Vendor Service")}}>
                                     +
                                 </Button>
                             </td>
@@ -147,14 +168,20 @@ const ProdFinMachines = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            <td>
-                                Machine
-                            </td>
-                            <td>
-                                <Button>
-                                    -
-                                </Button>
-                            </td>
+                        {list.map((item, index) => (
+                        <>  
+                            <tr>
+                                <td key={index}>{item}</td>
+                                <td>
+                                    <Button key={index+Math.random()} color='danger' onClick={() => {handleRemove(index)}}>
+                                        -
+                                    </Button>
+                                </td>
+                                
+                            </tr>
+                        </>
+                        )
+                        )}    
                         </tbody>
                     </Table>
                 </Col>

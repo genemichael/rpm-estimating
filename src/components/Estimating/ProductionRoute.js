@@ -107,6 +107,10 @@ const ProductionRoute = () => {
                     Colors Side B
                     <Input type='number' tabIndex={9} id='colsb' />
                 </Col>
+                <Col>
+                    Versions
+                    <Input type='number' tabIndex={10} id='versions' />
+                </Col>
             </Row>
             <br/>
             <Row>
