@@ -3,6 +3,7 @@
 import React, {useState} from 'react'
 import { Button, Table, Row, Col, Tab, Input } from 'reactstrap'
 
+
 const AvailableMachines = () => {
     const [list, setList] = React.useState([]);
     const addFunction = (machineName) => {
@@ -172,7 +173,6 @@ const AvailableMachines = () => {
                                         -
                                     </Button>
                                 </td>
-                                
                             </tr>
                         </>
                         )

@@ -37,7 +37,7 @@ const ProdFinMachines = () => {
                         <thead>
                             <tr>
                                 <th>
-                                    Component
+                                    Part
                                 </th>
                                 <th>
                                     Selected

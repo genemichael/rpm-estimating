@@ -39633,7 +39633,7 @@ const EstimatingStartScreen = ()=>{
     const [modal, setModal] = (0, _react.useState)(false);
     const toggleModal = ()=>setModal(!modal);
     const getAQuoteNumber = ()=>{
-        google.script.run.withSuccessHandler(loadNumber).NewEstimateNumber();
+        google.script.run.withSuccessHandler(loadNumber).newEstimateNumber();
         alert("click");
     };
     function loadNumber(newNumber) {
@@ -40224,7 +40224,44 @@ const EstimatingDetails = ()=>{
                     lineNumber: 109,
                     columnNumber: 9
                 }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _saveContinueDefault.default), {}, void 0, false, {
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.Row), {
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "d-flex justify-content-end",
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.ButtonGroup), {
+                            className: "btn-group",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.Button), {
+                                    outline: true,
+                                    color: "primary",
+                                    id: "saveButton",
+                                    children: "Save & Continue"
+                                }, void 0, false, {
+                                    fileName: "src/components/Estimating/EstimatingDetails.js",
+                                    lineNumber: 115,
+                                    columnNumber: 18
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.Button), {
+                                    color: "danger",
+                                    className: "btn",
+                                    id: "clearButton",
+                                    children: "Clear"
+                                }, void 0, false, {
+                                    fileName: "src/components/Estimating/EstimatingDetails.js",
+                                    lineNumber: 122,
+                                    columnNumber: 18
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/components/Estimating/EstimatingDetails.js",
+                            lineNumber: 114,
+                            columnNumber: 14
+                        }, undefined)
+                    }, void 0, false, {
+                        fileName: "src/components/Estimating/EstimatingDetails.js",
+                        lineNumber: 112,
+                        columnNumber: 10
+                    }, undefined)
+                }, void 0, false, {
                     fileName: "src/components/Estimating/EstimatingDetails.js",
                     lineNumber: 110,
                     columnNumber: 9
@@ -40678,6 +40715,14 @@ $RefreshReg$(_c, "SpecComponent");
 function doGet() {
     return HtmlService.createTemplateFromFile("index").evaluate().addMetaTag("viewport", "width=device-width, initial-scale=1.0");
 }
+function newEstimateNumber() {
+    let ss = SpreadsheetApp.openById("10TcZDDmOAn_0Ao-6HLFMJ64MNHqZUgk8Y9AI6T4wlGM");
+    let startingRange = ss.getSheetByName("Part 1").getRange("J3");
+    let startingnumber = startingRange.getValue();
+    let newNumber = startingnumber + 1;
+    startingRange.setValue(newNumber);
+    return newNumber;
+}
 
 },{}],"o9ux3":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$654c = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
@@ -40709,6 +40754,7 @@ const ProductionRoute = ()=>{
     const toggleLabor = ()=>{
         setLaborIsOpen(!laborIsOpen);
     };
+    const addAnother = ()=>{};
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.Container), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.Row), {
@@ -40718,12 +40764,12 @@ const ProductionRoute = ()=>{
                             children: "Production Routing"
                         }, void 0, false, {
                             fileName: "src/components/Estimating/ProductionRoute.js",
-                            lineNumber: 33,
+                            lineNumber: 34,
                             columnNumber: 17
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/Estimating/ProductionRoute.js",
-                        lineNumber: 32,
+                        lineNumber: 33,
                         columnNumber: 13
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.Col), {
@@ -40732,18 +40778,32 @@ const ProductionRoute = ()=>{
                             children: "Estimate Number"
                         }, void 0, false, {
                             fileName: "src/components/Estimating/ProductionRoute.js",
-                            lineNumber: 36,
+                            lineNumber: 37,
                             columnNumber: 17
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/Estimating/ProductionRoute.js",
-                        lineNumber: 35,
+                        lineNumber: 36,
                         columnNumber: 13
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/Estimating/ProductionRoute.js",
-                lineNumber: 31,
+                lineNumber: 32,
+                columnNumber: 9
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.Row), {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                    class: "lead",
+                    children: "Create each component, and route the sheet labor. Then, select components to route the component labor."
+                }, void 0, false, {
+                    fileName: "src/components/Estimating/ProductionRoute.js",
+                    lineNumber: 43,
+                    columnNumber: 13
+                }, undefined)
+            }, void 0, false, {
+                fileName: "src/components/Estimating/ProductionRoute.js",
+                lineNumber: 42,
                 columnNumber: 9
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.Form), {
@@ -40759,18 +40819,18 @@ const ProductionRoute = ()=>{
                                     placeholder: "This part's description."
                                 }, void 0, false, {
                                     fileName: "src/components/Estimating/ProductionRoute.js",
-                                    lineNumber: 45,
+                                    lineNumber: 49,
                                     columnNumber: 21
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/Estimating/ProductionRoute.js",
-                            lineNumber: 43,
+                            lineNumber: 47,
                             columnNumber: 17
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/Estimating/ProductionRoute.js",
-                        lineNumber: 42,
+                        lineNumber: 46,
                         columnNumber: 13
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.Row), {
@@ -40784,24 +40844,6 @@ const ProductionRoute = ()=>{
                                         id: "pDimA"
                                     }, void 0, false, {
                                         fileName: "src/components/Estimating/ProductionRoute.js",
-                                        lineNumber: 51,
-                                        columnNumber: 21
-                                    }, undefined)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/components/Estimating/ProductionRoute.js",
-                                lineNumber: 49,
-                                columnNumber: 17
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.Col), {
-                                children: [
-                                    "Part Dim B",
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.Input), {
-                                        type: "number",
-                                        tabIndex: 2,
-                                        id: "pDimb"
-                                    }, void 0, false, {
-                                        fileName: "src/components/Estimating/ProductionRoute.js",
                                         lineNumber: 55,
                                         columnNumber: 21
                                     }, undefined)
@@ -40813,11 +40855,11 @@ const ProductionRoute = ()=>{
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.Col), {
                                 children: [
-                                    "Pages",
+                                    "Part Dim B",
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.Input), {
                                         type: "number",
-                                        tabIndex: 3,
-                                        id: "pages"
+                                        tabIndex: 2,
+                                        id: "pDimb"
                                     }, void 0, false, {
                                         fileName: "src/components/Estimating/ProductionRoute.js",
                                         lineNumber: 59,
@@ -40828,11 +40870,29 @@ const ProductionRoute = ()=>{
                                 fileName: "src/components/Estimating/ProductionRoute.js",
                                 lineNumber: 57,
                                 columnNumber: 17
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.Col), {
+                                children: [
+                                    "Pages",
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.Input), {
+                                        type: "number",
+                                        tabIndex: 3,
+                                        id: "pages"
+                                    }, void 0, false, {
+                                        fileName: "src/components/Estimating/ProductionRoute.js",
+                                        lineNumber: 63,
+                                        columnNumber: 21
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/Estimating/ProductionRoute.js",
+                                lineNumber: 61,
+                                columnNumber: 17
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/Estimating/ProductionRoute.js",
-                        lineNumber: 48,
+                        lineNumber: 52,
                         columnNumber: 13
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.Row), {
@@ -40846,24 +40906,6 @@ const ProductionRoute = ()=>{
                                         id: "sDimA"
                                     }, void 0, false, {
                                         fileName: "src/components/Estimating/ProductionRoute.js",
-                                        lineNumber: 65,
-                                        columnNumber: 21
-                                    }, undefined)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/components/Estimating/ProductionRoute.js",
-                                lineNumber: 63,
-                                columnNumber: 17
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.Col), {
-                                children: [
-                                    "Substrate Dim B",
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.Input), {
-                                        type: "number",
-                                        tabIndex: 5,
-                                        id: "sDimb"
-                                    }, void 0, false, {
-                                        fileName: "src/components/Estimating/ProductionRoute.js",
                                         lineNumber: 69,
                                         columnNumber: 21
                                     }, undefined)
@@ -40875,11 +40917,11 @@ const ProductionRoute = ()=>{
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.Col), {
                                 children: [
-                                    "Number Out",
+                                    "Substrate Dim B",
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.Input), {
                                         type: "number",
-                                        tabIndex: 6,
-                                        id: "numOut"
+                                        tabIndex: 5,
+                                        id: "sDimb"
                                     }, void 0, false, {
                                         fileName: "src/components/Estimating/ProductionRoute.js",
                                         lineNumber: 73,
@@ -40890,11 +40932,29 @@ const ProductionRoute = ()=>{
                                 fileName: "src/components/Estimating/ProductionRoute.js",
                                 lineNumber: 71,
                                 columnNumber: 17
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.Col), {
+                                children: [
+                                    "Number Out",
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.Input), {
+                                        type: "number",
+                                        tabIndex: 6,
+                                        id: "numOut"
+                                    }, void 0, false, {
+                                        fileName: "src/components/Estimating/ProductionRoute.js",
+                                        lineNumber: 77,
+                                        columnNumber: 21
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/Estimating/ProductionRoute.js",
+                                lineNumber: 75,
+                                columnNumber: 17
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/Estimating/ProductionRoute.js",
-                        lineNumber: 62,
+                        lineNumber: 66,
                         columnNumber: 13
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.Row), {
@@ -40910,48 +40970,34 @@ const ProductionRoute = ()=>{
                                         children: [
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {}, void 0, false, {
                                                 fileName: "src/components/Estimating/ProductionRoute.js",
-                                                lineNumber: 81,
+                                                lineNumber: 85,
                                                 columnNumber: 21
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {}, void 0, false, {
                                                 fileName: "src/components/Estimating/ProductionRoute.js",
-                                                lineNumber: 82,
+                                                lineNumber: 86,
                                                 columnNumber: 21
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {}, void 0, false, {
                                                 fileName: "src/components/Estimating/ProductionRoute.js",
-                                                lineNumber: 83,
+                                                lineNumber: 87,
                                                 columnNumber: 21
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {}, void 0, false, {
                                                 fileName: "src/components/Estimating/ProductionRoute.js",
-                                                lineNumber: 84,
+                                                lineNumber: 88,
                                                 columnNumber: 21
                                             }, undefined)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/components/Estimating/ProductionRoute.js",
-                                        lineNumber: 79,
+                                        lineNumber: 83,
                                         columnNumber: 21
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/Estimating/ProductionRoute.js",
-                                lineNumber: 77,
-                                columnNumber: 17
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.Col), {
-                                children: [
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
-                                        fileName: "src/components/Estimating/ProductionRoute.js",
-                                        lineNumber: 88,
-                                        columnNumber: 21
-                                    }, undefined),
-                                    "Unlisted Substrate?"
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/components/Estimating/ProductionRoute.js",
-                                lineNumber: 87,
+                                lineNumber: 81,
                                 columnNumber: 17
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.Col), {
@@ -40959,6 +41005,20 @@ const ProductionRoute = ()=>{
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                                         fileName: "src/components/Estimating/ProductionRoute.js",
                                         lineNumber: 92,
+                                        columnNumber: 21
+                                    }, undefined),
+                                    "Unlisted Substrate?"
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/Estimating/ProductionRoute.js",
+                                lineNumber: 91,
+                                columnNumber: 17
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.Col), {
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                                        fileName: "src/components/Estimating/ProductionRoute.js",
+                                        lineNumber: 96,
                                         columnNumber: 17
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _toggleSwitchDefault.default), {
@@ -40968,19 +41028,19 @@ const ProductionRoute = ()=>{
                                         onClick: specialSubstrateIsTrue
                                     }, void 0, false, {
                                         fileName: "src/components/Estimating/ProductionRoute.js",
-                                        lineNumber: 93,
+                                        lineNumber: 97,
                                         columnNumber: 21
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/Estimating/ProductionRoute.js",
-                                lineNumber: 91,
+                                lineNumber: 95,
                                 columnNumber: 17
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/Estimating/ProductionRoute.js",
-                        lineNumber: 76,
+                        lineNumber: 80,
                         columnNumber: 13
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.Row), {
@@ -40994,24 +41054,6 @@ const ProductionRoute = ()=>{
                                         id: "colsA"
                                     }, void 0, false, {
                                         fileName: "src/components/Estimating/ProductionRoute.js",
-                                        lineNumber: 104,
-                                        columnNumber: 21
-                                    }, undefined)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/components/Estimating/ProductionRoute.js",
-                                lineNumber: 102,
-                                columnNumber: 17
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.Col), {
-                                children: [
-                                    "Colors Side B",
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.Input), {
-                                        type: "number",
-                                        tabIndex: 9,
-                                        id: "colsb"
-                                    }, void 0, false, {
-                                        fileName: "src/components/Estimating/ProductionRoute.js",
                                         lineNumber: 108,
                                         columnNumber: 21
                                     }, undefined)
@@ -41023,11 +41065,11 @@ const ProductionRoute = ()=>{
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.Col), {
                                 children: [
-                                    "Versions",
+                                    "Colors Side B",
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.Input), {
                                         type: "number",
-                                        tabIndex: 10,
-                                        id: "versions"
+                                        tabIndex: 9,
+                                        id: "colsb"
                                     }, void 0, false, {
                                         fileName: "src/components/Estimating/ProductionRoute.js",
                                         lineNumber: 112,
@@ -41038,16 +41080,34 @@ const ProductionRoute = ()=>{
                                 fileName: "src/components/Estimating/ProductionRoute.js",
                                 lineNumber: 110,
                                 columnNumber: 17
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.Col), {
+                                children: [
+                                    "Versions",
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.Input), {
+                                        type: "number",
+                                        tabIndex: 10,
+                                        id: "versions"
+                                    }, void 0, false, {
+                                        fileName: "src/components/Estimating/ProductionRoute.js",
+                                        lineNumber: 116,
+                                        columnNumber: 21
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/Estimating/ProductionRoute.js",
+                                lineNumber: 114,
+                                columnNumber: 17
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/Estimating/ProductionRoute.js",
-                        lineNumber: 101,
+                        lineNumber: 105,
                         columnNumber: 13
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                         fileName: "src/components/Estimating/ProductionRoute.js",
-                        lineNumber: 115,
+                        lineNumber: 119,
                         columnNumber: 13
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.Row), {
@@ -41063,7 +41123,7 @@ const ProductionRoute = ()=>{
                                     children: "Production Route"
                                 }, void 0, false, {
                                     fileName: "src/components/Estimating/ProductionRoute.js",
-                                    lineNumber: 118,
+                                    lineNumber: 122,
                                     columnNumber: 21
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.Collapse), {
@@ -41072,55 +41132,103 @@ const ProductionRoute = ()=>{
                                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.CardBody), {
                                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _laborNavDefault.default), {}, void 0, false, {
                                                 fileName: "src/components/Estimating/ProductionRoute.js",
-                                                lineNumber: 129,
+                                                lineNumber: 133,
                                                 columnNumber: 29
                                             }, undefined)
                                         }, void 0, false, {
                                             fileName: "src/components/Estimating/ProductionRoute.js",
-                                            lineNumber: 128,
+                                            lineNumber: 132,
                                             columnNumber: 25
                                         }, undefined)
                                     }, void 0, false, {
                                         fileName: "src/components/Estimating/ProductionRoute.js",
-                                        lineNumber: 127,
+                                        lineNumber: 131,
                                         columnNumber: 25
                                     }, undefined)
                                 }, void 0, false, {
                                     fileName: "src/components/Estimating/ProductionRoute.js",
-                                    lineNumber: 126,
+                                    lineNumber: 130,
                                     columnNumber: 21
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/Estimating/ProductionRoute.js",
-                            lineNumber: 117,
+                            lineNumber: 121,
                             columnNumber: 17
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/Estimating/ProductionRoute.js",
-                        lineNumber: 116,
+                        lineNumber: 120,
                         columnNumber: 13
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/Estimating/ProductionRoute.js",
-                lineNumber: 41,
+                lineNumber: 45,
                 columnNumber: 9
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                 fileName: "src/components/Estimating/ProductionRoute.js",
-                lineNumber: 136,
+                lineNumber: 140,
                 columnNumber: 9
             }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _saveAddClearDefault.default), {}, void 0, false, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.Row), {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "d-flex justify-content-end",
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.ButtonGroup), {
+                        className: "btn-group",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.Button), {
+                                outline: true,
+                                color: "primary",
+                                id: "saveButton",
+                                children: "Save"
+                            }, void 0, false, {
+                                fileName: "src/components/Estimating/ProductionRoute.js",
+                                lineNumber: 146,
+                                columnNumber: 13
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.Button), {
+                                outline: true,
+                                color: "warning",
+                                id: "addAnother",
+                                onClick: addAnother,
+                                children: "Add Another"
+                            }, void 0, false, {
+                                fileName: "src/components/Estimating/ProductionRoute.js",
+                                lineNumber: 152,
+                                columnNumber: 13
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.Button), {
+                                color: "danger",
+                                className: "btn",
+                                id: "clearButton",
+                                children: "Clear"
+                            }, void 0, false, {
+                                fileName: "src/components/Estimating/ProductionRoute.js",
+                                lineNumber: 159,
+                                columnNumber: 13
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/Estimating/ProductionRoute.js",
+                        lineNumber: 145,
+                        columnNumber: 9
+                    }, undefined)
+                }, void 0, false, {
+                    fileName: "src/components/Estimating/ProductionRoute.js",
+                    lineNumber: 143,
+                    columnNumber: 5
+                }, undefined)
+            }, void 0, false, {
                 fileName: "src/components/Estimating/ProductionRoute.js",
-                lineNumber: 137,
+                lineNumber: 141,
                 columnNumber: 9
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/Estimating/ProductionRoute.js",
-        lineNumber: 30,
+        lineNumber: 31,
         columnNumber: 5
     }, undefined);
 };
@@ -41451,25 +41559,25 @@ const AvailableMachines = ()=>{
                                             children: "Machine"
                                         }, void 0, false, {
                                             fileName: "src/components/Estimating/AvailableMachines.js",
-                                            lineNumber: 37,
+                                            lineNumber: 38,
                                             columnNumber: 29
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
                                             children: "Add"
                                         }, void 0, false, {
                                             fileName: "src/components/Estimating/AvailableMachines.js",
-                                            lineNumber: 40,
+                                            lineNumber: 41,
                                             columnNumber: 29
                                         }, undefined)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/components/Estimating/AvailableMachines.js",
-                                    lineNumber: 36,
+                                    lineNumber: 37,
                                     columnNumber: 25
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/components/Estimating/AvailableMachines.js",
-                                lineNumber: 35,
+                                lineNumber: 36,
                                 columnNumber: 21
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tbody", {
@@ -41480,7 +41588,7 @@ const AvailableMachines = ()=>{
                                                 children: "Indigo"
                                             }, void 0, false, {
                                                 fileName: "src/components/Estimating/AvailableMachines.js",
-                                                lineNumber: 47,
+                                                lineNumber: 48,
                                                 columnNumber: 25
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
@@ -41492,18 +41600,18 @@ const AvailableMachines = ()=>{
                                                     children: "+"
                                                 }, void 0, false, {
                                                     fileName: "src/components/Estimating/AvailableMachines.js",
-                                                    lineNumber: 51,
+                                                    lineNumber: 52,
                                                     columnNumber: 29
                                                 }, undefined)
                                             }, void 0, false, {
                                                 fileName: "src/components/Estimating/AvailableMachines.js",
-                                                lineNumber: 50,
+                                                lineNumber: 51,
                                                 columnNumber: 25
                                             }, undefined)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/components/Estimating/AvailableMachines.js",
-                                        lineNumber: 46,
+                                        lineNumber: 47,
                                         columnNumber: 21
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
@@ -41512,7 +41620,7 @@ const AvailableMachines = ()=>{
                                                 children: "Versant"
                                             }, void 0, false, {
                                                 fileName: "src/components/Estimating/AvailableMachines.js",
-                                                lineNumber: 57,
+                                                lineNumber: 58,
                                                 columnNumber: 25
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
@@ -41524,18 +41632,18 @@ const AvailableMachines = ()=>{
                                                     children: "+"
                                                 }, void 0, false, {
                                                     fileName: "src/components/Estimating/AvailableMachines.js",
-                                                    lineNumber: 61,
+                                                    lineNumber: 62,
                                                     columnNumber: 29
                                                 }, undefined)
                                             }, void 0, false, {
                                                 fileName: "src/components/Estimating/AvailableMachines.js",
-                                                lineNumber: 60,
+                                                lineNumber: 61,
                                                 columnNumber: 25
                                             }, undefined)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/components/Estimating/AvailableMachines.js",
-                                        lineNumber: 56,
+                                        lineNumber: 57,
                                         columnNumber: 21
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
@@ -41544,7 +41652,7 @@ const AvailableMachines = ()=>{
                                                 children: "KM1250"
                                             }, void 0, false, {
                                                 fileName: "src/components/Estimating/AvailableMachines.js",
-                                                lineNumber: 67,
+                                                lineNumber: 68,
                                                 columnNumber: 25
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
@@ -41556,18 +41664,18 @@ const AvailableMachines = ()=>{
                                                     children: "+"
                                                 }, void 0, false, {
                                                     fileName: "src/components/Estimating/AvailableMachines.js",
-                                                    lineNumber: 71,
+                                                    lineNumber: 72,
                                                     columnNumber: 29
                                                 }, undefined)
                                             }, void 0, false, {
                                                 fileName: "src/components/Estimating/AvailableMachines.js",
-                                                lineNumber: 70,
+                                                lineNumber: 71,
                                                 columnNumber: 25
                                             }, undefined)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/components/Estimating/AvailableMachines.js",
-                                        lineNumber: 66,
+                                        lineNumber: 67,
                                         columnNumber: 21
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
@@ -41576,7 +41684,7 @@ const AvailableMachines = ()=>{
                                                 children: "Hopkins 4-Color"
                                             }, void 0, false, {
                                                 fileName: "src/components/Estimating/AvailableMachines.js",
-                                                lineNumber: 77,
+                                                lineNumber: 78,
                                                 columnNumber: 25
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
@@ -41588,18 +41696,18 @@ const AvailableMachines = ()=>{
                                                     children: "+"
                                                 }, void 0, false, {
                                                     fileName: "src/components/Estimating/AvailableMachines.js",
-                                                    lineNumber: 81,
+                                                    lineNumber: 82,
                                                     columnNumber: 29
                                                 }, undefined)
                                             }, void 0, false, {
                                                 fileName: "src/components/Estimating/AvailableMachines.js",
-                                                lineNumber: 80,
+                                                lineNumber: 81,
                                                 columnNumber: 25
                                             }, undefined)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/components/Estimating/AvailableMachines.js",
-                                        lineNumber: 76,
+                                        lineNumber: 77,
                                         columnNumber: 21
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
@@ -41608,7 +41716,7 @@ const AvailableMachines = ()=>{
                                                 children: "Chief 15"
                                             }, void 0, false, {
                                                 fileName: "src/components/Estimating/AvailableMachines.js",
-                                                lineNumber: 87,
+                                                lineNumber: 88,
                                                 columnNumber: 25
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
@@ -41620,18 +41728,18 @@ const AvailableMachines = ()=>{
                                                     children: "+"
                                                 }, void 0, false, {
                                                     fileName: "src/components/Estimating/AvailableMachines.js",
-                                                    lineNumber: 91,
+                                                    lineNumber: 92,
                                                     columnNumber: 29
                                                 }, undefined)
                                             }, void 0, false, {
                                                 fileName: "src/components/Estimating/AvailableMachines.js",
-                                                lineNumber: 90,
+                                                lineNumber: 91,
                                                 columnNumber: 25
                                             }, undefined)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/components/Estimating/AvailableMachines.js",
-                                        lineNumber: 86,
+                                        lineNumber: 87,
                                         columnNumber: 21
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
@@ -41640,7 +41748,7 @@ const AvailableMachines = ()=>{
                                                 children: "19 Cutter"
                                             }, void 0, false, {
                                                 fileName: "src/components/Estimating/AvailableMachines.js",
-                                                lineNumber: 97,
+                                                lineNumber: 98,
                                                 columnNumber: 25
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
@@ -41652,18 +41760,18 @@ const AvailableMachines = ()=>{
                                                     children: "+"
                                                 }, void 0, false, {
                                                     fileName: "src/components/Estimating/AvailableMachines.js",
-                                                    lineNumber: 101,
+                                                    lineNumber: 102,
                                                     columnNumber: 29
                                                 }, undefined)
                                             }, void 0, false, {
                                                 fileName: "src/components/Estimating/AvailableMachines.js",
-                                                lineNumber: 100,
+                                                lineNumber: 101,
                                                 columnNumber: 25
                                             }, undefined)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/components/Estimating/AvailableMachines.js",
-                                        lineNumber: 96,
+                                        lineNumber: 97,
                                         columnNumber: 21
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
@@ -41672,7 +41780,7 @@ const AvailableMachines = ()=>{
                                                 children: "MBO Folder"
                                             }, void 0, false, {
                                                 fileName: "src/components/Estimating/AvailableMachines.js",
-                                                lineNumber: 107,
+                                                lineNumber: 108,
                                                 columnNumber: 25
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
@@ -41684,18 +41792,18 @@ const AvailableMachines = ()=>{
                                                     children: "+"
                                                 }, void 0, false, {
                                                     fileName: "src/components/Estimating/AvailableMachines.js",
-                                                    lineNumber: 111,
+                                                    lineNumber: 112,
                                                     columnNumber: 29
                                                 }, undefined)
                                             }, void 0, false, {
                                                 fileName: "src/components/Estimating/AvailableMachines.js",
-                                                lineNumber: 110,
+                                                lineNumber: 111,
                                                 columnNumber: 25
                                             }, undefined)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/components/Estimating/AvailableMachines.js",
-                                        lineNumber: 106,
+                                        lineNumber: 107,
                                         columnNumber: 21
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
@@ -41704,7 +41812,7 @@ const AvailableMachines = ()=>{
                                                 children: "Cylinder Press"
                                             }, void 0, false, {
                                                 fileName: "src/components/Estimating/AvailableMachines.js",
-                                                lineNumber: 117,
+                                                lineNumber: 118,
                                                 columnNumber: 25
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
@@ -41716,18 +41824,18 @@ const AvailableMachines = ()=>{
                                                     children: "+"
                                                 }, void 0, false, {
                                                     fileName: "src/components/Estimating/AvailableMachines.js",
-                                                    lineNumber: 121,
+                                                    lineNumber: 122,
                                                     columnNumber: 29
                                                 }, undefined)
                                             }, void 0, false, {
                                                 fileName: "src/components/Estimating/AvailableMachines.js",
-                                                lineNumber: 120,
+                                                lineNumber: 121,
                                                 columnNumber: 25
                                             }, undefined)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/components/Estimating/AvailableMachines.js",
-                                        lineNumber: 116,
+                                        lineNumber: 117,
                                         columnNumber: 21
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
@@ -41736,7 +41844,7 @@ const AvailableMachines = ()=>{
                                                 children: "Duplo Tower"
                                             }, void 0, false, {
                                                 fileName: "src/components/Estimating/AvailableMachines.js",
-                                                lineNumber: 127,
+                                                lineNumber: 128,
                                                 columnNumber: 25
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
@@ -41748,18 +41856,18 @@ const AvailableMachines = ()=>{
                                                     children: "+"
                                                 }, void 0, false, {
                                                     fileName: "src/components/Estimating/AvailableMachines.js",
-                                                    lineNumber: 131,
+                                                    lineNumber: 132,
                                                     columnNumber: 29
                                                 }, undefined)
                                             }, void 0, false, {
                                                 fileName: "src/components/Estimating/AvailableMachines.js",
-                                                lineNumber: 130,
+                                                lineNumber: 131,
                                                 columnNumber: 25
                                             }, undefined)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/components/Estimating/AvailableMachines.js",
-                                        lineNumber: 126,
+                                        lineNumber: 127,
                                         columnNumber: 21
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
@@ -41768,7 +41876,7 @@ const AvailableMachines = ()=>{
                                                 children: "Vendor Service"
                                             }, void 0, false, {
                                                 fileName: "src/components/Estimating/AvailableMachines.js",
-                                                lineNumber: 137,
+                                                lineNumber: 138,
                                                 columnNumber: 25
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
@@ -41780,42 +41888,42 @@ const AvailableMachines = ()=>{
                                                     children: "+"
                                                 }, void 0, false, {
                                                     fileName: "src/components/Estimating/AvailableMachines.js",
-                                                    lineNumber: 141,
+                                                    lineNumber: 142,
                                                     columnNumber: 29
                                                 }, undefined)
                                             }, void 0, false, {
                                                 fileName: "src/components/Estimating/AvailableMachines.js",
-                                                lineNumber: 140,
+                                                lineNumber: 141,
                                                 columnNumber: 25
                                             }, undefined)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/components/Estimating/AvailableMachines.js",
-                                        lineNumber: 136,
+                                        lineNumber: 137,
                                         columnNumber: 21
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/Estimating/AvailableMachines.js",
-                                lineNumber: 45,
+                                lineNumber: 46,
                                 columnNumber: 21
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/Estimating/AvailableMachines.js",
-                        lineNumber: 32,
+                        lineNumber: 33,
                         columnNumber: 14
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/components/Estimating/AvailableMachines.js",
-                    lineNumber: 31,
+                    lineNumber: 32,
                     columnNumber: 13
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.Col), {
                     className: "col-2"
                 }, void 0, false, {
                     fileName: "src/components/Estimating/AvailableMachines.js",
-                    lineNumber: 149,
+                    lineNumber: 150,
                     columnNumber: 13
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactstrap.Col), {
@@ -41830,25 +41938,25 @@ const AvailableMachines = ()=>{
                                             children: "Selected Machine"
                                         }, void 0, false, {
                                             fileName: "src/components/Estimating/AvailableMachines.js",
-                                            lineNumber: 157,
+                                            lineNumber: 158,
                                             columnNumber: 29
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
                                             children: "Remove"
                                         }, void 0, false, {
                                             fileName: "src/components/Estimating/AvailableMachines.js",
-                                            lineNumber: 160,
+                                            lineNumber: 161,
                                             columnNumber: 29
                                         }, undefined)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/components/Estimating/AvailableMachines.js",
-                                    lineNumber: 156,
+                                    lineNumber: 157,
                                     columnNumber: 25
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/components/Estimating/AvailableMachines.js",
-                                lineNumber: 155,
+                                lineNumber: 156,
                                 columnNumber: 21
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tbody", {
@@ -41860,7 +41968,7 @@ const AvailableMachines = ()=>{
                                                     children: item
                                                 }, index, false, {
                                                     fileName: "src/components/Estimating/AvailableMachines.js",
-                                                    lineNumber: 169,
+                                                    lineNumber: 170,
                                                     columnNumber: 33
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
@@ -41872,41 +41980,41 @@ const AvailableMachines = ()=>{
                                                         children: "-"
                                                     }, index + Math.random, false, {
                                                         fileName: "src/components/Estimating/AvailableMachines.js",
-                                                        lineNumber: 171,
+                                                        lineNumber: 172,
                                                         columnNumber: 37
                                                     }, undefined)
                                                 }, void 0, false, {
                                                     fileName: "src/components/Estimating/AvailableMachines.js",
-                                                    lineNumber: 170,
+                                                    lineNumber: 171,
                                                     columnNumber: 33
                                                 }, undefined)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/components/Estimating/AvailableMachines.js",
-                                            lineNumber: 168,
+                                            lineNumber: 169,
                                             columnNumber: 29
                                         }, undefined)
                                     }, void 0, false))
                             }, void 0, false, {
                                 fileName: "src/components/Estimating/AvailableMachines.js",
-                                lineNumber: 165,
+                                lineNumber: 166,
                                 columnNumber: 21
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/Estimating/AvailableMachines.js",
-                        lineNumber: 153,
+                        lineNumber: 154,
                         columnNumber: 17
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/components/Estimating/AvailableMachines.js",
-                    lineNumber: 152,
+                    lineNumber: 153,
                     columnNumber: 13
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/components/Estimating/AvailableMachines.js",
-            lineNumber: 30,
+            lineNumber: 31,
             columnNumber: 9
         }, undefined)
     }, void 0, false);
@@ -41977,7 +42085,7 @@ const CompFinMachines = ()=>{
                                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
                                     children: [
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
-                                            children: "Component"
+                                            children: "Part"
                                         }, void 0, false, {
                                             fileName: "src/components/Estimating/CompFinMachines.js",
                                             lineNumber: 39,
@@ -42496,7 +42604,7 @@ const ProdFinMachines = ()=>{
                                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
                                     children: [
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
-                                            children: "Component"
+                                            children: "Part"
                                         }, void 0, false, {
                                             fileName: "src/components/Estimating/ProdFinMachines.js",
                                             lineNumber: 39,

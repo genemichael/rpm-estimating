@@ -22,7 +22,7 @@ const EstimatingStartScreen = () => {
     const toggleModal = () => setModal(!modal);
     const getAQuoteNumber = () => {
         
-            google.script.run.withSuccessHandler(loadNumber).NewEstimateNumber();
+            google.script.run.withSuccessHandler(loadNumber).newEstimateNumber();
             alert("click");
           }
           function loadNumber(newNumber) {

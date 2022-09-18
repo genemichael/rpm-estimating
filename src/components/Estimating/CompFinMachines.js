@@ -37,7 +37,7 @@ const CompFinMachines = () => {
                         <thead>
                             <tr>
                                 <th>
-                                    Component
+                                    Part
                                 </th>
                                 <th>
                                     Selected

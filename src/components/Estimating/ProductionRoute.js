@@ -7,7 +7,7 @@ import {
     Container,
     Card,
     CardBody,
-    Nav,
+    ButtonGroup,
     Input,
     Form
  } from 'reactstrap'
@@ -25,6 +25,7 @@ const ProductionRoute = () => {
     const toggleLabor = ()=> {
         setLaborIsOpen(!laborIsOpen)
     }
+    const addAnother = () => {}
 
   return (
     <Container>
@@ -37,6 +38,9 @@ const ProductionRoute = () => {
                     Estimate Number
                 </div>
             </Col>
+        </Row>
+        <Row>
+            <p class="lead">Create each component, and route the sheet labor. Then, select components to route the component labor.</p>
         </Row>
         <Form>
             <Row>
@@ -134,7 +138,31 @@ const ProductionRoute = () => {
             </Row>
         </Form>
         <br/>
-        <SaveAddClear/>
+        <Row>
+         
+    <div className='d-flex justify-content-end'>
+
+        <ButtonGroup className='btn-group'>
+            <Button 
+                outline
+                color='primary'
+                id='saveButton'
+                >Save
+            </Button>
+            <Button
+            outline
+            color='warning'
+            id='addAnother'
+            onClick={addAnother}>
+                Add Another
+            </Button>
+            <Button
+            color='danger'
+            className='btn'
+            id='clearButton'>Clear</Button>
+        </ButtonGroup>
+        </div>
+        </Row>
     </Container>
   )
 }
