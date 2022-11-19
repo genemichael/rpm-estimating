@@ -40,7 +40,7 @@ const ProductionRoute = () => {
             </Col>
         </Row>
         <Row>
-            <p class="lead">Create each component, and route the sheet labor. Then, select components to route the component labor.</p>
+            <p className="lead">Create each component, and route the sheet labor. Then, select components to route the component labor.</p>
         </Row>
         <Form>
             <Row>

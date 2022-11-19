@@ -159,6 +159,9 @@ const AvailableMachines = () => {
                                 Selected Machine
                             </th>
                             <th>
+                                Run Method
+                            </th>
+                            <th>
                                 Remove
                             </th>
                         </tr>
@@ -168,6 +171,18 @@ const AvailableMachines = () => {
                         <>  
                             <tr>
                                 <td key={index}>{item}</td>
+                                <td key={index+'runMethod'}>
+                                    <Input
+                                    type='select'
+                                    className='form-control'
+                                    name='runMethod'
+                                    id='runMethod'>
+                                        <option></option>
+                                        <option>Sheetwise</option>
+                                        <option>Work & Turn</option>
+                                        <option>Tumble</option>
+                                    </Input>
+                                </td>
                                 <td>
                                     <Button key={index+Math.random} color='danger' onClick={() => {handleRemove(index)}}>
                                         -

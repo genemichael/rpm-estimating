@@ -13,10 +13,11 @@ import { Container,
     Button,
     ButtonToggle
  } from 'reactstrap'
+import EstimateNumber from './EstimateNumber';
  
 
 const EstimatingDetails = () => {
-  
+  const [estimateNum, setEstimateNum] = useState();
     return (
     <Container>
     <Form>
@@ -26,8 +27,11 @@ const EstimatingDetails = () => {
             </Col>
             <Col>
                 <div className='d-flex justify-content-end'>
-                    Estimate Number: 
+                    Estimate Number: {EstimateNumber}
                 </div>
+            </Col>
+            <Col className='col-1' id='estNumber'>
+                {estimateNum}
             </Col>
         </Row>
         <br/>
